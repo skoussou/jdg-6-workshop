@@ -9,7 +9,7 @@ Infinispan:: _Infinispan is a distributed in-memory key/value data store and can
 **Note:** JDG API does not have a direct Infinisan community version and it has as a basis Infinispn 6 but with several patches from version 7 on top.
 
 
-mage:images/CacheManagerAPIHierarchy.png["DRL Rules",height=128]
+image:images/CacheManagerAPIHierarchy.png["DRL Rules",height=128]
 
 A CacheManager is the primary mechanism for retrieving a Cache instance, and is often used as a starting point to using the Cache. CacheManagers are heavyweight objects, and we foresee no more than one CacheManager being used per JVM (unless specific configuration requirements require more than one; but either way, this would be a minimal and finite number of instances). Once constructed, CacheManagers should be made available to any component that requires a Cache, via JNDI or via some other mechanism such as an IoC container.
 
@@ -17,7 +17,7 @@ https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/commons/api/BasicCa
 extended by https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/CacheContainer.html[CacheContainer] Interface::
 extended by https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/EmbeddedCacheManager.html[EmbeddedCacheManager]:: All implementations of EmbeddedCacheManager are a CacheManager that runs in the same JVM as the client.
 
-https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/DefaultCacheManager.html[DefaultCacheManager::: Is used for access of JDG _Caches_ in **Embedded Mode** and its constructors can take in a Configuration or a path or URL to a configuration XML file. _Lifecycle_ - CacheManagers have a lifecycle (it implements Lifecycle) and the default constructors also call DefaultCacheManager.start()_. When the system shuts down, it should call _DefaultCacheManager.stop()_ on the CacheManager to also ensure all caches within its scope are properly stopped as well.
+https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/DefaultCacheManager.html[DefaultCacheManager]:: Is used for access of JDG _Caches_ in **Embedded Mode** and its constructors can take in a Configuration or a path or URL to a configuration XML file. _Lifecycle_ - CacheManagers have a lifecycle (it implements Lifecycle) and the default constructors also call DefaultCacheManager.start()_. When the system shuts down, it should call _DefaultCacheManager.stop()_ on the CacheManager to also ensure all caches within its scope are properly stopped as well.
 
 https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/client/hotrod/RemoteCacheManager.html[RemoteCacheManager]:: Is used to gain access to _RemoteCache_, the _RemoteCacheManager_ must be started first: beside other things, this instantiates connections to Hot Rod server(s). Starting the _RemoteCacheManager_ can be done either at creation by passing _start==true_ to constructor or by using a constructor that does that for you; or after construction by calling _RemoteCacheManager.start()_. This is an "expensive" object, as it manages a set of persistent TCP connections to the Hot Rod servers. It is recommended to only have one instance of this per JVM, and to cache it between calls to the server (i.e. remoteCache operations). _RemoteCacheManager.stop()_ needs to be called explicitly in order to release all the resources (e.g. threads, TCP connections).
 

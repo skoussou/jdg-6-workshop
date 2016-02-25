@@ -9,7 +9,7 @@ Infinispan:: _Infinispan is a distributed in-memory key/value data store and can
 **Note:** JDG API does not have a direct Infinisan community version and it has as a basis Infinispn 6 but with several patches from version 7 on top.
 
 
-image:images/CacheManagerAPIHierarchy.png["DRL Rules",height=128]
+image:images/CacheManagerAPIHierarchy.png["Cache Manager",height=128]
 
 A CacheManager is the primary mechanism for retrieving a Cache instance, and is often used as a starting point to using the Cache. CacheManagers are heavyweight objects, and we foresee no more than one CacheManager being used per JVM (unless specific configuration requirements require more than one; but either way, this would be a minimal and finite number of instances). Once constructed, CacheManagers should be made available to any component that requires a Cache, via JNDI or via some other mechanism such as an IoC container.
 

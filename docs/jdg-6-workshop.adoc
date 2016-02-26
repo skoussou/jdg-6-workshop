@@ -45,12 +45,12 @@ With http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_modules
 
 == GRID TOPOLOGIES
 * **NON CLUSTERED**
-..* **LOCAL**
+..* LOCAL
 
 * **CLUSTERED**
-..* **REPLICATION**
-..* **DISTRIBUTION (PARTIIONED)**
-..* **INVALIDATION**
+..* REPLICATION**
+..* DISTRIBUTION (PARTIONED)
+..* INVALIDATION
 
 Hashwheel and Consistency Algorithms will go later
 

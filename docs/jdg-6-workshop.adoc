@@ -44,13 +44,13 @@ With http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_modules
 2. LAB 2: JDG Installation in Client Server Mode. Ideas from: https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Getting_Started_Guide/index.html#chap-Run_Red_Hat_JBoss_Data_Grid_in_Remote_Client-Server_Mode [Run Red Hat JBoss Data Grid in Remote Client-Server Mode]
 
 == GRID TOPOLOGIES
-### NON CLUSTERED
-* LOCAL
+* **NON CLUSTERED**
+..* **LOCAL**
 
-### CLUSTERED
-* REPLICATION
-* DISTRIBUTION (PARTIIONED)
-* INVALIDATION
+* **CLUSTERED**
+..* **REPLICATION**
+..* **DISTRIBUTION (PARTIIONED)**
+..* **INVALIDATION**
 
 Hashwheel and Consistency Algorithms will go later
 
@@ -80,15 +80,14 @@ Configure CacheManager and Caches (configuration, server configuratoin)
 * MBEANS
 * JON
 
-...day 2
+== day 2
 * Marshalling (Embedded vs Client-Server, StorebyValue/StorebyReference) 
 * Hashwheel (algorithms)
 * State Transfer
 * Cache Warmup (including CacheStores, WriteThrough/WriteBehind)
 * Security: 
 
-...day 3
-
+== day 3
 * JGroups (stack, toll to monitor JGroups etc.)
 * Partition Handling, Split Brain Syndrome
 * Transactions

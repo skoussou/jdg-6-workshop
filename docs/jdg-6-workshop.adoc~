@@ -41,9 +41,5 @@ Embedded: _CachingProvider.getCacheManager(file_location)_
 Remote:   _CachingProvider.getCacheManager_
           In addition, contrary to Library mode, the first time a cache reference is obtained _CacheManager.createCache_ must be used so that the cache may be registered internally. Subsequent queries may be performed via _CacheManager.getCache_.
 
-
-1. LAB 1: JDG Installation in Library Mode
-2. LAB 2: JDG Installation in Client Server Mode
-
  
 

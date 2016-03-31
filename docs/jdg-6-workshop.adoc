@@ -32,10 +32,10 @@ With http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_modules
 ### Cache
 
 * Cache
-⋅⋅1 AdvanceCache
+** AdvanceCache
 * JCache
-⋅⋅1 Embedded: _CachingProvider.getCacheManager(file_location)_
-⋅⋅2 Remote:   _CachingProvider.getCacheManager_. In addition, contrary to Library mode, the first time a cache reference is obtained _CacheManager.createCache_ must be used so that the cache may be registered internally. Subsequent queries may be performed via _CacheManager.getCache_.
+** Embedded: _CachingProvider.getCacheManager(file_location)_
+** Remote:   _CachingProvider.getCacheManager_. In addition, contrary to Library mode, the first time a cache reference is obtained _CacheManager.createCache_ must be used so that the cache may be registered internally. Subsequent queries may be performed via _CacheManager.getCache_.
 * Spring Cache
 * CDI Cache
 

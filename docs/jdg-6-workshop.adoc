@@ -59,7 +59,8 @@ link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/commons/api/Ba
 * link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/security/SecureCache.html[SecureCache] TBD
 
 
-https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#chap-JSR-107_JCache_API[JCache]::
+link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#chap-JSR-107_JCache_API[JCache]::
+
 * JCache Embedded: _CachingProvider.getCacheManager(file_location)_
 * JCache Remote:   _CachingProvider.getCacheManager_. In addition, contrary to Library mode, the first time a cache reference is obtained _CacheManager.createCache_ must be used so that the cache may be registered internally. Subsequent queries may be performed via _CacheManager.getCache_.
 
@@ -69,9 +70,12 @@ CDI Cache::
 ##### LABS
 1. LAB 1: JDG Installation in Library Mode. Ideas from: https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Getting_Started_Guide/index.html#chap-Run_Red_Hat_JBoss_Data_Grid_in_Library_Mode_Multi-Node_Setup[Run Red Hat JBoss Data Grid in Library Mode (Multi-Node Setup)]
 
-Lab 1 - JDG Cache in Libary (Embedded Mode)
-
-We start with a simple JDG Embedded Setup Labe (JdgLibraryWorkshopSetup1). Here we simply create a cache based on default non-clustered configuration. Execute the application by running the `Main class. Observe the output. Why is the thread not exiting? Can you fix it?
+Lab 1 - JDG Cache in Library (Embedded Mode)
++++**Pre-Requisites**+++
+* Download and unzip the Maven Repository for the relevant (at the time of writing JDG 6.6) JDG Version.
+* set the maven with a profile for the unzipped repository (eg ../example-settings.xml)
+ 
+We start with a simple JDG Embedded Setup Labe (**JdgLibraryWorkshopSetup1**). Here we simply create a cache based on embedded JDG libraries and a default non-clustered configuration. Execute the application by running the `Main class. Observe the output. Why is the thread not exiting? Can you fix it?
 ----
 Compile: mvn clean compile
 Run:     mvn exec:java -Dexec.mainClass="org.jboss.skousou.jdg.workshop.Main"

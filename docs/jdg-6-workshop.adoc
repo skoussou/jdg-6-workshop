@@ -37,7 +37,14 @@ image:images/CacheAPIHIerarchy.png["Cache Interfaces",height=128]
 
 * link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/commons/api/AsyncCache.html[AsyncCache]: Supports asynchronous variants of the various put/get/remove/clear/replace/putAll methods whilst the net result is behavior similar to synchronous RPC calls in that at the end, you have guarantees that all calls completed successfully, but you have the added benefit that calls could happen in parallel (Note that these methods only really make sense if you are using a clustered cache).
 * link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/commons/api/BasicCache.html[BasicCache]: The BasicCache extends ConcurrentMap and implements all methods accordingly, although methods like Map.keySet(), Map.values() and Map.entrySet() are expensive (prohibitively so when using a distributed cache) and frequent use of these methods is not recommended. Other methods such as Map.size() provide an approximation-only, and should not be relied on for an accurate picture as to the size of the entire, distributed cache. Remote nodes are not queried and in-fly transactions are not taken into account, even if Map.size() is invoked from within such a transaction.
-
+* link:https://docs.jboss.org/infinispan/7.2/apidocs/[Cache]: Is the central interface of Infinispan and also the Interface used when JDG is utilized alongside an applicaition (in **Library(Embedded) Mode**). A Cache provides a highly concurrent, optionally distributed data structure with additional features such as:
+** JTA transaction compatibility
+** Eviction support for evicting entries from memory
+** Persisting entries to a CacheLoader, either when they are evicted as an overflow, or all the time, to maintain persistent copies that would withstand server failure or restarts
+----
+      CacheManager cm = new DefaultCacheManager(); // optionally pass in a default configuration
+      Cache c = cm.getCache();
+----
 
 
 

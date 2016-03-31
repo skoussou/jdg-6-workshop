@@ -74,7 +74,7 @@ CDI Cache:: TBD
 * Download and unzip the Maven Repository for the relevant (at the time of writing JDG 6.6) JDG Version.
 * set the maven with a profile for the unzipped repository (eg link:../example-settings.xml[example-settings.xml])
  
-We start with a simple JDG Embedded Setup Labe (link:file://../JdgLibraryWorkshopSetup1[JdgLibraryWorkshopSetup1]). Here we simply create a cache based on embedded JDG libraries and a default non-clustered configuration. Execute the application by running the `Main class. Observe the output. Why is the thread not exiting? Can you fix it?
+We start with a simple JDG Embedded Setup Labe (link:../JdgLibraryWorkshopSetup1[JdgLibraryWorkshopSetup1]). Here we simply create a cache based on embedded JDG libraries and a default non-clustered configuration. Execute the application by running the `Main class. Observe the output. Why is the thread not exiting? Can you fix it?
 ----
 Compile: mvn clean compile
 Run:     mvn exec:java -Dexec.mainClass="org.jboss.skousou.jdg.workshop.Main"

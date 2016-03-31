@@ -35,28 +35,12 @@ With link:http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_mo
 link:https://docs.jboss.org/infinispan/7.2/apidocs/[Cache]:: Is the central interface of Infinispan. It is based on the following hierarchy (ConcurrentMap is not shown) of interfaces and as with _CacheManger_ there are 2 types of Cache Interfaces (_Remote_, _Embedded_) which extend the _BasicCache_
 image:images/CacheAPIHIerarchy.png["Cache Interfaces",height=128]
 
-* link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/commons/api/AsyncCache.html[AsyncCache]: Supports asynchronous variants of the various put/get/remove/clear/replace/putAll methods whilst the net result is behavior similar to synchronous RPC calls in that at the end, you have guarantees that all calls completed successfully, but you have the added benefit that calls could happen in parallel (Note that these methods only really make sense if you are using a clustered cache)
-link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/commons/api/BasicCache.html[BasicCache]: The BasicCache extends ConcurrentMap and implements all methods accordingly, although methods like Map.keySet(), Map.values() and Map.entrySet() are expensive (prohibitively so when using a distributed cache) and frequent use of these methods is not recommended. Other methods such as Map.size() provide an approximation-only, and should not be relied on for an accurate picture as to the size of the entire, distributed cache. Remote nodes are not queried and in-fly transactions are not taken into account, even if Map.size() is invoked from within such a transaction.
 
-* link:https://docs.jboss.org/infinispan/7.2/apidocs/[Cache]: Is the central interface of Infinispan and also the Interface used when JDG is utilized alongside an applicaition (in **Library(Embedded) Mode**). A Cache provides a highly concurrent, optionally distributed data structure with additional features such as:
-** JTA transaction compatibility
-** Eviction support for evicting entries from memory
-** Persisting entries to a CacheLoader, either when they are evicted as an overflow, or all the time, to maintain persistent copies that would withstand server failure or restarts
-----
-      CacheManager cm = new DefaultCacheManager(); // optionally pass in a default configuration
-      Cache c = cm.getCache();
-----
-* link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/client/hotrod/RemoteCache.html[Remote Cache]: Provides remote reference to a Hot Rod server/cluster therefore a JDG Server instance is required. It implements Cache, but given its nature (remote) some operations are not supported. 
-** New Operaitons: On the other hand new operations e.g. versioned put operation( besides the operations inherited from Cache) exist in order to optimize/reduce network traffic: .
-** Return values: previously existing values for certain Map operations are not returned, null is returned instead. E.g. Map.put(Object, Object) returns the previous value associated to the supplied key. In case of RemoteCache, this returns null.
-** Synthetic operations: aggregate operations are being implemented based on other Hot Rod operations. E.g. all the Map.putAll(java.util.Map) is implemented through multiple individual puts. This means that the these operations are not atomic and that they are costly, e.g. as the number of network round-trips is not one, but the size of the added map. All these synthetic operations are documented as such.
-** link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/client/hotrod/Flag.html[Flags]: It is possible to change the default cache behaviour by using flags on an per invocation basis. E.g.
-----
-      RemoteCache cache = getRemoteCache();
-      Object oldValue = cache.withFlags(Flag.FORCE_RETURN_VALUE).put(aKey, aValue);
-----
-* link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/AdvancedCache.html[AdvancedCache]  TBD
-* link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/security/SecureCache.html[SecureCache] TBD
+
+
+
+
+
 
 
 link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#chap-JSR-107_JCache_API[JCache]::

@@ -45,7 +45,15 @@ image:images/CacheAPIHIerarchy.png["Cache Interfaces",height=128]
       CacheManager cm = new DefaultCacheManager(); // optionally pass in a default configuration
       Cache c = cm.getCache();
 ----
-
+* link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/client/hotrod/RemoteCache.html[Remote Cache]: Provides remote reference to a Hot Rod server/cluster therefore a JDG Server instance is required. It implements Cache, but given its nature (remote) some operations are not supported. 
+** New Operaitons: On the other hand new operations e.g. versioned put operation( besides the operations inherited from Cache) exist in order to optimize/reduce network traffic: .
+** Return values: previously existing values for certain Map operations are not returned, null is returned instead. E.g. Map.put(Object, Object) returns the previous value associated to the supplied key. In case of RemoteCache, this returns null.
+** Synthetic operations: aggregate operations are being implemented based on other Hot Rod operations. E.g. all the Map.putAll(java.util.Map) is implemented through multiple individual puts. This means that the these operations are not atomic and that they are costly, e.g. as the number of network round-trips is not one, but the size of the added map. All these synthetic operations are documented as such.
+** link:https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/client/hotrod/Flag.html[Flags]: It is possible to change the default cache behaviour by using flags on an per invocation basis. E.g.
+----
+      RemoteCache cache = getRemoteCache();
+      Object oldValue = cache.withFlags(Flag.FORCE_RETURN_VALUE).put(aKey, aValue);
+----
 
 
 

@@ -18,12 +18,12 @@ https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/commons/api/BasicCa
 * extended by https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/CacheContainer.html[CacheContainer Interface]::
 * extended by https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/EmbeddedCacheManager.html[EmbeddedCacheManager]:: All implementations of _EmbeddedCacheManager_ are a CacheManager that runs in the same JVM as the client.
 
-https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/DefaultCacheManager.html[DefaultCacheManager]:: It implements the _EmbeddedCacheManager_. It is used for access of JDG _Caches_ in **Library(Embedded) Mode** and its constructors can take in a Configuration or a path or URL to a configuration XML file. _Lifecycle_ - CacheManagers have a lifecycle (it implements Lifecycle) and the default constructors also call DefaultCacheManager.start()_. When the system shuts down, it should call _DefaultCacheManager.stop()_ on the CacheManager to also ensure all caches within its scope are properly stopped as well.
+https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/manager/DefaultCacheManager.html[DefaultCacheManager] It implements the _EmbeddedCacheManager_. It is used for access of JDG _Caches_ in **Library(Embedded) Mode** and its constructors can take in a Configuration or a path or URL to a configuration XML file. _Lifecycle_ - CacheManagers have a lifecycle (it implements Lifecycle) and the default constructors also call DefaultCacheManager.start()_. When the system shuts down, it should call _DefaultCacheManager.stop()_ on the CacheManager to also ensure all caches within its scope are properly stopped as well.
 
 https://docs.jboss.org/infinispan/7.2/apidocs/org/infinispan/client/hotrod/RemoteCacheManager.html[RemoteCacheManager]:: Is used to gain access to _RemoteCache_, the _RemoteCacheManager_ must be started first: beside other things, this instantiates connections to Hot Rod server(s). Starting the _RemoteCacheManager_ can be done either at creation by passing _start==true_ to constructor or by using a constructor that does that for you; or after construction by calling _RemoteCacheManager.start()_. This is an "expensive" object, as it manages a set of persistent TCP connections to the Hot Rod servers. It is recommended to only have one instance of this per JVM, and to cache it between calls to the server (i.e. remoteCache operations). _RemoteCacheManager.stop()_ needs to be called explicitly in order to release all the resources (e.g. threads, TCP connections).
 
 **Library Mode**
-With http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_modules[Infinispan in Library (Embedded) mode]:: _CacheManager_ libraries co-exist with the user application in the same JVM whilst also application and cache data  share the JVM space. There are http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_why_use_embedded_mode[reasons for and against]:: using this P2P mode but mainly it offers quick change over another technology, transactions whilst giving away flexibility of linear extensibility.
+With "http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_modules"[Infinispan in Library (Embedded) mode] _CacheManager_ libraries co-exist with the user application in the same JVM whilst also application and cache data  share the JVM space. There are http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_why_use_embedded_mode[reasons for and against]:: using this P2P mode but mainly it offers quick change over another technology, transactions whilst giving away flexibility of linear extensibility.
 
 **Client-Server Mode**
 With http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_modules[Infinispan in Client-Server mode] the _CacheManager_ configuration is provided from a Server with HotRod, REST and MemCache as the current server implementations. Focusing on HotRod specific configurations to reach a remote _CacheManager_ is performed by passing standard HotRod client properties via properties parameter. The remote servers referenced must be running and able to receive the request. If not specified the default address and port will be used (127.0.0.1:11222).  
@@ -32,10 +32,10 @@ With http://infinispan.org/docs/7.2.x/user_guide/user_guide.html#_server_modules
 ### Cache
 
 * Cache
-  * AdvanceCache
+⋅⋅1 AdvanceCache
 * JCache
-  * Embedded: _CachingProvider.getCacheManager(file_location)_
-  * Remote:   _CachingProvider.getCacheManager_. In addition, contrary to Library mode, the first time a cache reference is obtained _CacheManager.createCache_ must be used so that the cache may be registered internally. Subsequent queries may be performed via _CacheManager.getCache_.
+⋅⋅1 Embedded: _CachingProvider.getCacheManager(file_location)_
+⋅⋅2 Remote:   _CachingProvider.getCacheManager_. In addition, contrary to Library mode, the first time a cache reference is obtained _CacheManager.createCache_ must be used so that the cache may be registered internally. Subsequent queries may be performed via _CacheManager.getCache_.
 * Spring Cache
 * CDI Cache
 

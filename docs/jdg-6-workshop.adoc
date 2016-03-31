@@ -64,8 +64,10 @@ link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/h
 * JCache Embedded: _CachingProvider.getCacheManager(file_location)_
 * JCache Remote:   _CachingProvider.getCacheManager_. In addition, contrary to Library mode, the first time a cache reference is obtained _CacheManager.createCache_ must be used so that the cache may be registered internally. Subsequent queries may be performed via _CacheManager.getCache_.
 
-Spring Cache:: TBD
-CDI Cache:: TBD
+link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#Integration_with_the_Spring_Framework[Spring Initiated Cache]:: 
+* TBD
+link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#chap-The_Infinispan_CDI_Module[CDI Initiated Cache]:: 
+* TBD
 
 ##### LABS
 
@@ -136,7 +138,10 @@ Configure CacheManager and Caches (configuration, server configuration)::
 * Hashwheel (algorithms)
 * State Transfer
 * Cache Warmup (including CacheStores, WriteThrough/WriteBehind)
-* Security: 
+* Security
+** JDG Security in link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#sect-Data_Security_for_Library_Mode[Library (Embedded) Mode]
+** JDG Security in link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#sect-Data_Security_for_Remote_Client_Server_Mode[Remote (Client Server) Mode]
+** link:https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Developer_Guide/index.html#chap-Security_for_Cluster_Traffic[Secure Clustered Traffic]
 
 == day 3
 * JGroups (stack, toll to monitor JGroups etc.)

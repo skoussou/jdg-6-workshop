@@ -71,7 +71,7 @@ CDI Cache:: TBD
 
 **1. Lab 1 - JDG Cache in Library (Embedded Mode)**
 
-+++Pre-Requisites+++
+pass:[<u>Pre-Requisites</u>]
 * Download and unzip the Maven Repository for the relevant (at the time of writing JDG 6.6) JDG Version.
 * set the maven with a profile for the unzipped repository (eg link:../example-settings.xml[example-settings.xml])
  

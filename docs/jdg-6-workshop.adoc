@@ -69,7 +69,7 @@ CDI Cache:: TBD
 
 ##### LABS
 
-**1. Lab 1 - JDG Cache in Library (Embedded Mode)**
+###### 1. Lab 1 - JDG Cache in Library (Embedded Mode)
 
 pass:[<u>Pre-Requisites</u>]
 * Download and unzip the Maven Repository for the relevant (at the time of writing JDG 6.6) JDG Version.

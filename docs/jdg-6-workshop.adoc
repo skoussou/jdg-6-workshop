@@ -69,11 +69,12 @@ CDI Cache:: TBD
 
 ##### LABS
 
-###### 1. Lab 1 - JDG Cache in Library (Embedded Mode)
-Pre-Requisites
-* Download and unzip the Maven Repository for the relevant (at the time of writing JDG 6.6) JDG Version.
-* set the maven with a profile for the unzipped repository (eg link:../example-settings.xml[example-settings.xml])
+###### Lab 1 - JDG Cache in Library (Embedded Mode)
+* Pre-Requisites
+** Download and unzip the Maven Repository for the relevant (at the time of writing JDG 6.6) JDG Version.
+** set the maven with a profile for the unzipped repository (eg link:../example-settings.xml[example-settings.xml])
  
+* Lab Tasks
 We start with a simple JDG Embedded Setup Labe (link:../JdgLibraryWorkshopSetup1[JdgLibraryWorkshopSetup1]). Here we simply create a cache based on embedded JDG libraries and a default non-clustered configuration. Execute the application by running the `Main class. Observe the output. Why is the thread not exiting? Can you fix it?
 ----
 Compile: mvn clean compile
@@ -82,7 +83,16 @@ Run:     mvn exec:java -Dexec.mainClass="org.jboss.skousou.jdg.workshop.Main"
 
 ** TO BE REMOVED ** : https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Getting_Started_Guide/index.html#chap-Run_Red_Hat_JBoss_Data_Grid_in_Library_Mode_Multi-Node_Setup[Run Red Hat JBoss Data Grid in Library Mode (Multi-Node Setup)]
 
-2. LAB 2: JDG Installation in Client Server Mode. Ideas from: https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Getting_Started_Guide/index.html#chap-Run_Red_Hat_JBoss_Data_Grid_in_Remote_Client-Server_Mode [Run Red Hat JBoss Data Grid in Remote Client-Server Mode]
+######  LAB 2: JDG Cache in Client Server Mode. 
+
+Ideas from: https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html-single/Getting_Started_Guide/index.html#chap-Run_Red_Hat_JBoss_Data_Grid_in_Remote_Client-Server_Mode [Run Red Hat JBoss Data Grid in Remote Client-Server Mode]
+
+* Pre-Requisites
+** Download and unzip the Maven Repository for the relevant (at the time of writing JDG 6.6) JDG Version.
+** set the maven with a profile for the unzipped repository (eg link:../example-settings.xml[example-settings.xml])
+** Download and unzip the JDG Server for the relevant (at the time of writing JDG 6.6) JDG Version.
+
+
 
 == GRID TOPOLOGIES
 ON CLUSTERED::
